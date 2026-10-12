@@ -1,5 +1,5 @@
 {
-  "name": "@flintdesignz/figma-parity",
+  "name": "@munei89/figma-parity",
   "version": "0.1.0",
   "description": "Compare Figma designs and prototype flows against your running web or React Native app, and get a parity report. Works headless (Playwright/Appium) or through Claude via MCP.",
   "main": "./dist/index.js",

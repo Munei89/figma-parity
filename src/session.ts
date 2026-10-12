@@ -233,7 +233,7 @@ export class ParitySession {
 
     return {
       meta: {
-        tool: "@flintdesignz/figma-parity",
+        tool: "@munei89/figma-parity",
         version: VERSION,
         generatedAt: new Date().toISOString(),
         figmaFile: this.design.fileName,
