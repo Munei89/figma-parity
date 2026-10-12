@@ -1,0 +1,41 @@
+// Config
+export { defineConfig, loadConfig, parseConfig, configSchema } from "./config.js";
+export type { ParityConfig, ParityConfigInput, ScreenTarget, WebTargetConfig, RNTargetConfig } from "./config.js";
+
+// Figma extraction
+export { FigmaClient, FigmaApiError, parseFileKey } from "./figma/client.js";
+export type { FigmaSource, FigmaClientOptions } from "./figma/client.js";
+export { extractDesign, extractTokens, findScreens, buildScreenSpec } from "./figma/extract.js";
+export type { DesignExtract, DesignTokens, ElementSpec, ScreenSpec, ExtractOptions } from "./figma/extract.js";
+export { buildPrototypeGraph, graphToMermaid } from "./figma/prototype.js";
+export type { PrototypeGraph, FlowEdge, Flow, EdgeKind } from "./figma/prototype.js";
+export { SnapshotSource, saveSnapshot } from "./figma/snapshot.js";
+export type * from "./figma/types.js";
+
+// Comparison
+export { compareVisual } from "./compare/visual.js";
+export type { VisualResult, RegionDiff } from "./compare/visual.js";
+export { compareElementStyle } from "./compare/styles.js";
+export type { StyleMismatch, StyleResult } from "./compare/styles.js";
+
+// Drivers
+export { WebDriver, collectStylesInPage } from "./drivers/web.js";
+export { ReactNativeDriver, toNativeSelector } from "./drivers/react-native.js";
+export type { Driver, AppStyle, Viewport } from "./drivers/types.js";
+
+// Running & reporting
+export { runParity, ParityRunner, createDriver } from "./runner.js";
+export type { RunOptions, ProgressEvent } from "./runner.js";
+export { ParitySession, createSource } from "./session.js";
+export { writeReport } from "./report/write.js";
+export { renderHtml } from "./report/html.js";
+export type * from "./results.js";
+
+// Agent / MCP
+export { ParityAgentApi } from "./mcp/api.js";
+export { createMcpServer, startMcpServer } from "./mcp/server.js";
+
+export { generateConfig } from "./init.js";
+export { reportToMarkdown, emitGitHubActions } from "./ci.js";
+
+export { VERSION } from "./version.js";
