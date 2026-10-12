@@ -1,0 +1,93 @@
+{
+  "name": "@flintdesignz/figma-parity",
+  "version": "0.1.0",
+  "description": "Compare Figma designs and prototype flows against your running web or React Native app, and get a parity report. Works headless (Playwright/Appium) or through Claude via MCP.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "dev": "tsx src/cli.ts",
+    "demo": "npm run build && node examples/demo/run-demo.mjs",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "figma",
+    "design-qa",
+    "visual-regression",
+    "prototype",
+    "playwright",
+    "react-native",
+    "appium",
+    "mcp",
+    "design-system",
+    "visual-testing",
+    "ui-testing",
+    "figma-api",
+    "model-context-protocol",
+    "claude"
+  ],
+  "author": "Flint",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "commander": "^13.1.0",
+    "pixelmatch": "^8.0.0",
+    "pngjs": "^7.0.0",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/pngjs": "^6.0.5",
+    "playwright": "^1.64.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4",
+    "webdriverio": "^10.0.2"
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "figma-parity": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "playwright": ">=1.40",
+    "webdriverio": ">=8"
+  },
+  "peerDependenciesMeta": {
+    "playwright": {
+      "optional": true
+    },
+    "webdriverio": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Munei89/figma-parity.git"
+  },
+  "homepage": "https://github.com/Munei89/figma-parity#readme",
+  "bugs": {
+    "url": "https://github.com/Munei89/figma-parity/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
