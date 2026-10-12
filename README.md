@@ -1,6 +1,6 @@
 # figma-parity
 
-[![npm](https://img.shields.io/npm/v/@flintdesignz/figma-parity)](https://www.npmjs.com/package/@flintdesignz/figma-parity) [![CI](https://github.com/Munei89/figma-parity/actions/workflows/ci.yml/badge.svg)](https://github.com/Munei89/figma-parity/actions/workflows/ci.yml) ![license](https://img.shields.io/npm/l/@flintdesignz/figma-parity)
+[![npm](https://img.shields.io/npm/v/@munei89/figma-parity)](https://www.npmjs.com/package/@munei89/figma-parity) [![CI](https://github.com/Munei89/figma-parity/actions/workflows/ci.yml/badge.svg)](https://github.com/Munei89/figma-parity/actions/workflows/ci.yml) ![license](https://img.shields.io/npm/l/@munei89/figma-parity)
 
 Check that what shipped matches what was designed. `figma-parity` reads a Figma file — screens, styles, tokens, comments, dev resources **and the prototype wiring** — then drives your running app and reports where it drifts:
 
@@ -20,14 +20,14 @@ It runs three ways:
 ## Install
 
 ```bash
-npm i -D @flintdesignz/figma-parity
+npm i -D @munei89/figma-parity
 # web
 npm i -D playwright && npx playwright install chromium
 # react native
 npm i -D webdriverio && npx appium   # plus the uiautomator2 / xcuitest driver
 ```
 
-The CLI is `figma-parity` once installed (or `npx @flintdesignz/figma-parity <command>` without installing). Needs Node 20+ (Node 22.18+ to load `.ts` config files directly; use `.mjs` otherwise). Set `FIGMA_TOKEN` to a [personal access token](https://help.figma.com/hc/en-us/articles/8085703771159) with file read access.
+The CLI is `figma-parity` once installed (or `npx @munei89/figma-parity <command>` without installing). Needs Node 20+ (Node 22.18+ to load `.ts` config files directly; use `.mjs` otherwise). Set `FIGMA_TOKEN` to a [personal access token](https://help.figma.com/hc/en-us/articles/8085703771159) with file read access.
 
 ## Quick start
 
@@ -46,7 +46,7 @@ Try it without a Figma account: `npm run build && node examples/demo/run-demo.mj
 ## Config
 
 ```js
-/** @type {import("@flintdesignz/figma-parity").ParityConfigInput} */
+/** @type {import("@munei89/figma-parity").ParityConfigInput} */
 export default {
   figma: { file: "https://www.figma.com/design/AbC123/My-App", pages: ["App"] },
   target: {
@@ -111,7 +111,7 @@ On native, style checks cover position, size and copy (the accessibility tree do
   "mcpServers": {
     "figma-parity": {
       "command": "npx",
-      "args": ["-y", "@flintdesignz/figma-parity", "mcp", "-c", "/path/to/figma-parity.config.mjs"],
+      "args": ["-y", "@munei89/figma-parity", "mcp", "-c", "/path/to/figma-parity.config.mjs"],
       "env": { "FIGMA_TOKEN": "figd_..." }
     }
   }
@@ -166,7 +166,7 @@ To pin the design (no Figma calls in CI, no rate limits), commit a snapshot: `fi
 ## Programmatic API
 
 ```ts
-import { loadConfig, runParity, extractDesign, buildPrototypeGraph, FigmaClient } from "@flintdesignz/figma-parity";
+import { loadConfig, runParity, extractDesign, buildPrototypeGraph, FigmaClient } from "@munei89/figma-parity";
 
 const { report, htmlPath } = await runParity(await loadConfig());
 if (report.summary.flows.fail) process.exit(1);
@@ -202,4 +202,4 @@ Releases are published from GitHub Actions with npm provenance: bump the version
 
 ## License
 
-MIT © Flint (Flintdesignz)
+MIT © Flint (Flintdesignz), Munei89

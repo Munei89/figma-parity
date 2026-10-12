@@ -64,7 +64,7 @@ export function generateConfig(design: DesignExtract, graph: PrototypeGraph, o: 
   return `// figma-parity config — generated from "${design.fileName}" (${design.screens.length} screens, ${graph.edges.length} prototype links)
 // Docs: https://github.com/Munei89/figma-parity#readme. Keys under \`screens\` and \`elements\` can be Figma names, paths or node ids.
 
-/** @type {import("@flintdesignz/figma-parity").ParityConfigInput} */
+/** @type {import("@munei89/figma-parity").ParityConfigInput} */
 export default {
   figma: {
     file: ${JSON.stringify(o.file)},
