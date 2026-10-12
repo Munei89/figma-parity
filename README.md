@@ -202,4 +202,4 @@ Releases are published from GitHub Actions with npm provenance: bump the version
 
 ## License
 
-MIT © Munei89
+MIT © Flint (Flintdesignz), Munei89
