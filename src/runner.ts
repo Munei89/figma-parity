@@ -9,13 +9,17 @@ import type { ScreenSpec } from "./figma/extract.js";
 import type { FlowEdge } from "./figma/prototype.js";
 import type { FlowResult, ParityReport } from "./results.js";
 
+/** Options for {@link runParity}. */
 export interface RunOptions {
   /** Provide your own driver (custom runner, device farm, mocks). */
   driver?: Driver;
+  /** Provide your own Figma source (defaults to FigmaClient or SnapshotSource). */
   source?: FigmaSource;
+  /** Working directory for resolving relative paths. */
   cwd?: string;
   /** Only run these screens (names, slugs or ids). */
   only?: string[];
+  /** Progress callback for tracking run status. */
   onProgress?: (event: ProgressEvent) => void;
 }
 
@@ -25,6 +29,11 @@ export type ProgressEvent =
   | { type: "flow"; label: string; status: string }
   | { type: "done"; htmlPath: string; jsonPath: string };
 
+/**
+ * Create a driver instance from config.
+ * @param config - Parity configuration
+ * @returns WebDriver or ReactNativeDriver depending on platform
+ */
 export function createDriver(config: ParityConfig): Driver {
   return config.target.platform === "web" ? new WebDriver(config.target) : new ReactNativeDriver(config.target);
 }
@@ -274,6 +283,17 @@ export class ParityRunner {
   }
 }
 
+/**
+ * Run a full parity check: extract design, drive the app, compare screens and flows, write report.
+ * @param config - Parity configuration
+ * @param opts - Run options (driver, source, progress callback)
+ * @returns Report and paths to HTML/JSON output
+ * @example
+ * ```ts
+ * const { report, htmlPath } = await runParity(await loadConfig());
+ * if (report.summary.visual.fail > 0) process.exit(1);
+ * ```
+ */
 export async function runParity(config: ParityConfig, opts: RunOptions = {}) {
   const session = await ParitySession.create(config, { source: opts.source, cwd: opts.cwd });
   const emit = opts.onProgress ?? (() => {});

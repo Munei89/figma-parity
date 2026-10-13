@@ -128,6 +128,12 @@ function flowRow(f: ParityReport["flows"][number], img: (path: string) => string
   </tr>`;
 }
 
+/**
+ * Generate a standalone HTML report with interactive diff sliders and results tables.
+ * @param r - Parity report
+ * @param img - Function to transform image paths (e.g. to base64 data URIs)
+ * @returns HTML string
+ */
 export function renderHtml(r: ParityReport, img: (path: string) => string = (p) => p): string {
   const s = r.summary;
   const testedScreens = r.screens.filter((x) => x.visual || x.styles || x.review);

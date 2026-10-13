@@ -45,6 +45,12 @@ const NAV_KIND: Record<string, "navigate" | "overlay" | "swap"> = {
  * (current API), legacy `transitionNodeID`, and each page's
  * `flowStartingPoints`. No prototype player automation needed.
  */
+/**
+ * Build a prototype flow graph from a Figma file.
+ * Parses interactions, transitionNodeID, and flowStartingPoints into a graph of screen → screen edges.
+ * @param file - Figma file response
+ * @returns Prototype graph with screens, edges, flows, and dangling links
+ */
 export function buildPrototypeGraph(file: FileResponse): PrototypeGraph {
   const screenNodes = findScreens(file.document).map((s) => s.node);
   const screens: PrototypeGraph["screens"] = {};

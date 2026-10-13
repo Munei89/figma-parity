@@ -9,6 +9,11 @@ import { ParityAgentApi } from "./api.js";
 const json = (v: unknown) => ({ content: [{ type: "text" as const, text: JSON.stringify(v, null, 2) }] });
 const fail = (e: unknown) => ({ isError: true as const, content: [{ type: "text" as const, text: e instanceof Error ? e.message : String(e) }] });
 
+/**
+ * Create an MCP server that exposes parity tools to agents like Claude.
+ * @param load - Function to load config (called lazily on first tool use)
+ * @returns MCP server instance
+ */
 export function createMcpServer(load: () => Promise<ParityConfig>) {
   const server = new McpServer({ name: "figma-parity", version: VERSION });
   let api: Promise<ParityAgentApi> | undefined;
@@ -151,6 +156,10 @@ export function createMcpServer(load: () => Promise<ParityConfig>) {
   return server;
 }
 
+/**
+ * Start the MCP server on stdio (for Claude desktop / Claude Code integration).
+ * @param opts - Server options (config path)
+ */
 export async function startMcpServer(opts: { configPath?: string } = {}) {
   const server = createMcpServer(() => loadConfig(opts.configPath));
   await server.connect(new StdioServerTransport());

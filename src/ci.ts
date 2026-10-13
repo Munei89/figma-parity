@@ -5,6 +5,12 @@ const pct = (n: number | null) => (n === null ? "—" : `${(n * 100).toFixed(1)}
 const cell = (s: string) => s.replace(/\|/g, "\\|").replace(/\n/g, " ");
 
 /** Markdown summary for CI job summaries and PR comments. */
+/**
+ * Convert a parity report to Markdown (for PR comments).
+ * @param r - Parity report
+ * @param reportUrl - Optional URL to link to full report
+ * @returns Markdown string with summary table and top issues
+ */
 export function reportToMarkdown(r: ParityReport, reportUrl?: string): string {
   const s = r.summary;
   const lines = [
@@ -44,6 +50,11 @@ export function reportToMarkdown(r: ParityReport, reportUrl?: string): string {
 }
 
 /** Writes a GitHub Actions job summary and error annotations when running in Actions. */
+/**
+ * Emit GitHub Actions annotations and job summary for a parity report.
+ * Only runs in GitHub Actions (checks GITHUB_ACTIONS env var).
+ * @param r - Parity report
+ */
 export async function emitGitHubActions(r: ParityReport): Promise<void> {
   if (!process.env.GITHUB_ACTIONS) return;
 

@@ -4,6 +4,13 @@ import type { ParityReport } from "../results.js";
 import { renderHtml } from "./html.js";
 
 /** Writes report.json and report.html into `dir`. With `inline`, images become data URIs. */
+/**
+ * Write HTML and JSON reports to disk.
+ * @param report - Parity report with results
+ * @param dir - Output directory
+ * @param inline - Embed images as base64 in HTML (larger file, but portable)
+ * @returns Paths to HTML and JSON files
+ */
 export async function writeReport(report: ParityReport, dir: string, inline: boolean = false) {
   const jsonPath = join(dir, "report.json");
   const htmlPath = join(dir, "report.html");

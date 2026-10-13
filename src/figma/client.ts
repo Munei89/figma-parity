@@ -37,6 +37,10 @@ export class FigmaApiError extends Error {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+/**
+ * Figma REST API client implementing {@link FigmaSource}.
+ * Handles rate limiting, retries, and caching.
+ */
 export class FigmaClient implements FigmaSource {
   private readonly baseUrl: string;
   private readonly fetchImpl: typeof fetch;
@@ -125,6 +129,16 @@ export class FigmaClient implements FigmaSource {
 }
 
 /** Accepts a Figma URL or a bare key and returns the file key. */
+/**
+ * Extract the file key from a Figma URL or return the input if it's already a key.
+ * @param input - Figma URL or file key
+ * @returns File key (alphanumeric string)
+ * @example
+ * ```ts
+ * parseFileKey("https://www.figma.com/design/AbC123/My-App") // "AbC123"
+ * parseFileKey("AbC123") // "AbC123"
+ * ```
+ */
 export function parseFileKey(input: string): string {
   const m = input.match(/figma\.com\/(?:file|design|proto|board)\/([A-Za-z0-9]+)/);
   return m?.[1] ?? input.trim();

@@ -18,6 +18,12 @@ export interface ResolvedSelector {
   source: "explicit" | "testid";
 }
 
+/**
+ * Create a FigmaSource from config (FigmaClient or SnapshotSource).
+ * @param config - Parity configuration
+ * @returns FigmaClient (live API) or SnapshotSource (offline cache)
+ * @throws Error if FIGMA_TOKEN is not set and no snapshot dir configured
+ */
 export function createSource(config: ParityConfig): FigmaSource {
   if (config.figma.snapshotDir) return new SnapshotSource(resolve(config.figma.snapshotDir));
   const token = config.figma.token ?? process.env.FIGMA_TOKEN;
