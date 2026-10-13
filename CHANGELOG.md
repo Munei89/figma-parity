@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.1 — 2026-10-13
+
+**Documentation overhaul**:
+- Complete README rewrite with accurate CLI documentation (all commands and flags verified against help output)
+- Comprehensive config reference with all options and defaults
+- Added Environment Variables, Troubleshooting, and Contributing sections
+- Added JSDoc to all major public exports for better IntelliSense
+
+**Package improvements**:
+- Removed `publishConfig.provenance` to allow local `npm publish` (provenance requires CI)
+
 ## 0.1.0 — 2026-10-13
 
 **Package renamed** from `@flintdesignz/figma-parity` to `@munei89/figma-parity`. Update your `package.json` and imports. No breaking changes to the API.

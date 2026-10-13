@@ -315,18 +315,20 @@ screens: {
 
 Then ask Claude: *"Use figma-parity to check the app in my browser against the design and give me the report."*
 
-Claude drives its own browser and the MCP server does the measuring. Available tools:
+Claude drives its own browser and the MCP server does the measuring. Available tools (11 total):
 
 | Tool | What it does |
 |---|---|
 | `parity_overview` | Screens (with the URL to open each), flows, and the workflow |
 | `parity_screen_spec` | Frame size, mapped elements, selectors, colors, typography, tokens, open Figma comments |
 | `parity_design_image` | The Figma render as an image, for Claude's own side-by-side review |
-| `parity_style_probe` → `parity_submit_styles` | JavaScript for Claude to run in the page; its output is compared exactly like the automated run |
+| `parity_style_probe` | Returns JavaScript for Claude to run in the page to measure styles |
+| `parity_submit_styles` | Compares the probe results against the design and records mismatches |
 | `parity_compare_screenshot` | Pixel diff from a PNG path/base64; returns the outlined diff image |
-| `parity_record_review` | Claude's qualitative findings (high severity fails the screen) |
-| `parity_flow_steps` → `parity_record_flow` | Each prototype interaction to perform and what should happen; Claude records the outcome |
-| `parity_write_report` | Writes the HTML/JSON report |
+| `parity_record_review` | Records Claude's qualitative findings (high severity fails the screen) |
+| `parity_flow_steps` | Lists prototype interactions to test (where to start, what to tap, expected destination) |
+| `parity_record_flow` | Records the outcome of one prototype interaction Claude performed |
+| `parity_write_report` | Writes the HTML/JSON report with all recorded results |
 | `parity_run_automated` | Runs the full headless check without Claude driving |
 
 The style probe is the same measurement code the Playwright runner uses, so results from Claude's browser and from CI are directly comparable. You can also point the automated web runner at a browser you already have open with `target.cdpUrl` (Chrome started with `--remote-debugging-port=9222`).
