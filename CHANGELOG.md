@@ -1,8 +1,10 @@
 # Changelog
 
-## 0.1.0 — 2026-10-12
+## 0.1.0 — 2026-10-13
 
-First release.
+**Package renamed** from `@flintdesignz/figma-parity` to `@munei89/figma-parity`. Update your `package.json` and imports. No breaking changes to the API.
+
+First release:
 
 - Figma extraction: screens, element specs (geometry, fills, strokes, radii, auto-layout padding/gap, typography, copy), tokens from applied styles, open comments, dev resources.
 - Prototype graph from `interactions`, legacy `transitionNodeID` and `flowStartingPoints`: navigate, overlay, swap, back, close, after-delay; dangling links reported.

@@ -126,10 +126,29 @@ export type WebTargetConfig = z.output<typeof webTarget>;
 export type RNTargetConfig = z.output<typeof rnTarget>;
 
 /** Identity helper for typed config files. */
+/**
+ * Type helper for config files. Provides IntelliSense without importing types.
+ * @param config - Configuration object
+ * @returns The same config, typed
+ * @example
+ * ```js
+ * // figma-parity.config.mjs
+ * export default defineConfig({
+ *   figma: { file: "AbC123" },
+ *   target: { platform: "web", baseUrl: "http://localhost:3000" },
+ * });
+ * ```
+ */
 export function defineConfig(config: ParityConfigInput): ParityConfigInput {
   return config;
 }
 
+/**
+ * Parse and validate a configuration object.
+ * @param input - Raw config object
+ * @returns Validated and normalized config
+ * @throws Error with validation details if config is invalid
+ */
 export function parseConfig(input: unknown): ParityConfig {
   const res = configSchema.safeParse(input);
   if (!res.success) {
@@ -150,6 +169,13 @@ export const CONFIG_FILES = [
 /**
  * Loads a config file. .ts files rely on Node's built-in type stripping
  * (Node >= 22.18); on older Node use .mjs/.js or run through tsx.
+ */
+/**
+ * Load and parse a configuration file.
+ * @param path - Config file path (optional, auto-detects figma-parity.config.{ts,mjs,js})
+ * @param cwd - Working directory for resolving relative paths
+ * @returns Validated configuration
+ * @throws Error if config file not found or invalid
  */
 export async function loadConfig(path?: string, cwd: string = process.cwd()): Promise<ParityConfig> {
   const file = path ? resolve(cwd, path) : CONFIG_FILES.map((f) => resolve(cwd, f)).find(existsSync);

@@ -13,6 +13,14 @@ export interface InitOptions {
  * guessed route, and every prototype hotspot listed with the test id it would
  * be matched by, so wiring things up is mostly filling in blanks.
  */
+/**
+ * Generate a starter configuration file from extracted design data.
+ * Used by the `init` CLI command.
+ * @param design - Extracted design (screens, elements, etc.)
+ * @param graph - Prototype graph with flows
+ * @param o - Init options (platform, baseUrl, etc.)
+ * @returns Config file content as a string
+ */
 export function generateConfig(design: DesignExtract, graph: PrototypeGraph, o: InitOptions): string {
   const web = o.platform === "web";
   const inFlow = new Set(graph.flows.flatMap((f) => f.screens));

@@ -208,6 +208,12 @@ export interface ExtractOptions {
 }
 
 /** The extractor: file → screens, element specs, tokens, comments and dev resources. */
+/**
+ * Extract screens, element specs, tokens, comments, and dev resources from a Figma file.
+ * @param source - FigmaSource (FigmaClient or SnapshotSource)
+ * @param opts - Extract options (filter screens, include/exclude comments)
+ * @returns Design extract with screens, file, tokens, comments, dev resources
+ */
 export async function extractDesign(source: FigmaSource, opts: ExtractOptions = {}): Promise<DesignExtract> {
   const [file, comments, devResources] = await Promise.all([
     source.getFile(),
