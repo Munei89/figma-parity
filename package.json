@@ -1,6 +1,6 @@
 {
   "name": "@munei89/figma-parity",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compare Figma designs and prototype flows against your running web or React Native app, and get a parity report. Works headless (Playwright/Appium) or through Claude via MCP.",
   "main": "./dist/index.js",
   "scripts": {
@@ -87,7 +87,6 @@
     "url": "https://github.com/Munei89/figma-parity/issues"
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }
