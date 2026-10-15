@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "tool": "@munei89/figma-parity",
+    "version": "0.1.1",
+    "generatedAt": "2026-10-15T11:41:46.924Z",
+    "figmaFile": "Demo App",
+    "platform": "web",
+    "target": "http://localhost:3456",
+    "durationMs": 1593
+  },
+  "summary": {
+    "screens": {
+      "total": 1,
+      "pass": 0,
+      "fail": 1,
+      "unmapped": 0,
+      "other": 0
+    },
+    "visual": {
+      "averageSimilarity": null
+    },
+    "styles": {
+      "checked": 3,
+      "mismatches": 13
+    },
+    "flows": {
+      "total": 0,
+      "pass": 0,
+      "fail": 0,
+      "blocked": 0,
+      "skipped": 0
+    },
+    "score": 0
+  },
+  "screens": [
+    {
+      "id": "1:1",
+      "name": "Login",
+      "slug": "login",
+      "page": "Login",
+      "size": {
+        "width": 400,
+        "height": 600
+      },
+      "status": "fail",
+      "target": {
+        "route": "/",
+        "marker": "[data-testid=\"screen-login\"]"
+      },
+      "openComments": [],
+      "devResources": [],
+      "location": "http://localhost:3456/",
+      "error": "Figma did not return a render for this frame.",
+      "styles": {
+        "status": "fail",
+        "checked": 5,
+        "found": 3,
+        "elements": [
+          {
+            "elementId": "1:3",
+            "name": "Welcome back",
+            "path": "Container/Welcome back",
+            "selector": "h1",
+            "source": "explicit",
+            "found": true,
+            "mismatches": 5
+          },
+          {
+            "elementId": "1:5",
+            "name": "Login button",
+            "path": "Container/Login button",
+            "selector": "[data-testid=\"login-button\"]",
+            "source": "explicit",
+            "found": true,
+            "mismatches": 5
+          },
+          {
+            "elementId": "1:6",
+            "name": "Sign in",
+            "path": "Container/Login button/Sign in",
+            "selector": "[data-testid=\"login-button\"]",
+            "source": "explicit",
+            "found": true,
+            "mismatches": 3
+          }
+        ],
+        "mismatches": [
+          {
+            "elementId": "1:3",
+            "name": "Welcome back",
+            "path": "Container/Welcome back",
+            "selector": "h1",
+            "property": "x",
+            "expected": 40,
+            "actual": 0
+          },
+          {
+            "elementId": "1:3",
+            "name": "Welcome back",
+            "path": "Container/Welcome back",
+            "selector": "h1",
+            "property": "y",
+            "expected": 220,
+            "actual": 263
+          },
+          {
+            "elementId": "1:3",
+            "name": "Welcome back",
+            "path": "Container/Welcome back",
+            "selector": "h1",
+            "property": "fontSize",
+            "expected": 28,
+            "actual": 24
+          },
+          {
+            "elementId": "1:3",
+            "name": "Welcome back",
+            "path": "Container/Welcome back",
+            "selector": "h1",
+            "property": "fontWeight",
+            "expected": 600,
+            "actual": 700
+          },
+          {
+            "elementId": "1:3",
+            "name": "Welcome back",
+            "path": "Container/Welcome back",
+            "selector": "h1",
+            "property": "fontFamily",
+            "expected": "Inter",
+            "actual": "-apple-system"
+          },
+          {
+            "elementId": "1:5",
+            "name": "Login button",
+            "path": "Container/Login button",
+            "selector": "[data-testid=\"login-button\"]",
+            "property": "x",
+            "expected": 40,
+            "actual": 220.2
+          },
+          {
+            "elementId": "1:5",
+            "name": "Login button",
+            "path": "Container/Login button",
+            "selector": "[data-testid=\"login-button\"]",
+            "property": "y",
+            "expected": 480,
+            "actual": 368
+          },
+          {
+            "elementId": "1:5",
+            "name": "Login button",
+            "path": "Container/Login button",
+            "selector": "[data-testid=\"login-button\"]",
+            "property": "width",
+            "expected": 320,
+            "actual": 110.25
+          },
+          {
+            "elementId": "1:5",
+            "name": "Login button",
+            "path": "Container/Login button",
+            "selector": "[data-testid=\"login-button\"]",
+            "property": "height",
+            "expected": 48,
+            "actual": 42
+          },
+          {
+            "elementId": "1:5",
+            "name": "Login button",
+            "path": "Container/Login button",
+            "selector": "[data-testid=\"login-button\"]",
+            "property": "backgroundColor",
+            "expected": "#0066ff",
+            "actual": "#0055ee"
+          },
+          {
+            "elementId": "1:6",
+            "name": "Sign in",
+            "path": "Container/Login button/Sign in",
+            "selector": "[data-testid=\"login-button\"]",
+            "property": "x",
+            "expected": 172,
+            "actual": 220.2
+          },
+          {
+            "elementId": "1:6",
+            "name": "Sign in",
+            "path": "Container/Login button/Sign in",
+            "selector": "[data-testid=\"login-button\"]",
+            "property": "y",
+            "expected": 492,
+            "actual": 368
+          },
+          {
+            "elementId": "1:6",
+            "name": "Sign in",
+            "path": "Container/Login button/Sign in",
+            "selector": "[data-testid=\"login-button\"]",
+            "property": "fontFamily",
+            "expected": "Inter",
+            "actual": "Arial"
+          }
+        ]
+      }
+    }
+  ],
+  "flows": [],
+  "flowsByName": [
+    {
+      "name": "Login Flow",
+      "start": "1:1",
+      "edges": []
+    }
+  ],
+  "danglingEdges": [],
+  "mermaid": "flowchart LR\n  s1_1[\"Login\"]",
+  "tokens": {
+    "colors": {},
+    "typography": {}
+  }
+}
