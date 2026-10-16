@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/@munei89/figma-parity)](https://www.npmjs.com/package/@munei89/figma-parity) [![CI](https://github.com/Munei89/figma-parity/actions/workflows/ci.yml/badge.svg)](https://github.com/Munei89/figma-parity/actions/workflows/ci.yml) ![license](https://img.shields.io/npm/l/@munei89/figma-parity)
 
+![Demo](docs/demo.gif)
+
 Check that what shipped matches what was designed. `figma-parity` reads a Figma file — screens, styles, tokens, comments, dev resources **and the prototype wiring** — then drives your running app and reports where it drifts:
 
 - **Visual** — pixel diff of every mapped screen against the Figma render, with differing elements named ("Balance card/Balance amount — 15% of area").
